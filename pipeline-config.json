@@ -1,0 +1,4 @@
+{
+    "appName": "menu-app",
+    "helmChartPath": "k8s"
+}

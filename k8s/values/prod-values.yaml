@@ -1,0 +1,13 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+env: prod
+
+ingress:
+  hostname: app.cerebrum.ae
+  path: /
+
+appenv:
+  baseapiurl: "http://app.cerebrum.ae/api/"
+  debugmode: false
