@@ -29,7 +29,7 @@ pipeline {
             }
         }
         
-        /*stage('Create Prod Build') {
+        stage('Create Prod Build') {
             when {
                 expression { params.BRANCH == 'develop' }
             }         
@@ -44,6 +44,6 @@ pipeline {
             steps {
                 DockerBuild()
             }
-        }*/
+        }
     }
 }
