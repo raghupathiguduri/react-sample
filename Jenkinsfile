@@ -12,14 +12,14 @@ pipeline {
               checkout scm
             }
         }
-        stage('Init Version') {
+        /*stage('Init Version') {
             when {
                 expression { params.BRANCH == 'develop' }
             }         
             steps {
                 BumpVersion()
             }
-        }
+        }*/
         stage('Build App') {
             when {
                 expression { params.BRANCH != 'develop' }
@@ -29,7 +29,7 @@ pipeline {
             }
         }
         
-        /*stage('Create Prod Build') {
+        stage('Create Prod Build') {
             when {
                 expression { params.BRANCH == 'develop' }
             }         
@@ -44,6 +44,6 @@ pipeline {
             steps {
                 DockerBuild()
             }
-        }*/
+        }
     }
 }
