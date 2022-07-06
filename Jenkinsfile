@@ -12,14 +12,14 @@ pipeline {
               checkout scm
             }
         }
-        stage('Init Version') {
+        /*stage('Init Version') {
             when {
                 expression { params.BRANCH == 'develop' }
             }         
             steps {
                 BumpVersion()
             }
-        }
+        }*/
         stage('Build App') {
             when {
                 expression { params.BRANCH != 'develop' }
