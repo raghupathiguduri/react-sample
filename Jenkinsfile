@@ -1,13 +1,13 @@
-@Library("jenkins-shared-library@master") _
+@Library("jenkins-shared-library@kaiburr") _
 pipeline {
     agent any
     tools {
-        nodejs 'nodejs-16.12'
+        nodejs 'nodejs-8.11.1'
     }
     stages {
         stage('Checkout') {
             steps {
-              deleteDir()
+              cleanWs()
               echo "Checking out....."
               checkout scm
             }
@@ -40,7 +40,10 @@ pipeline {
         stage('Docker Build') {
             when {
                 expression { params.BRANCH == 'develop' }
-            }         
+            }
+            environment {
+            dockerhub = credentials('dockerhub')
+            }
             steps {
                 DockerBuild()
             }
